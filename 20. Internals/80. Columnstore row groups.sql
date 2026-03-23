@@ -1,4 +1,4 @@
-
+--USE Production_DB_name; -- Database dependant
 
 select OBJECT_NAME(A.object_id) as Table_name -- Columnstore row groups
 	, B.name as Index_name
@@ -19,6 +19,3 @@ outer apply (
 where A.object_id in (OBJECT_ID('Some_table_name'))
 ;
 
-select * from sys.column_store_dictionaries;
-
-select * from sys.column_store_segments;
