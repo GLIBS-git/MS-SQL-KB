@@ -1,4 +1,4 @@
---USE Production_DB_name; -- Database dependant
+--USE Production_DB_name; -- Database dependent
 
 select OBJECT_NAME(A.object_id) as Table_name -- Columnstore row groups
 	, B.name as Index_name
