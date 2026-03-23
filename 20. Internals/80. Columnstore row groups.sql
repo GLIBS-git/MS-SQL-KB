@@ -16,6 +16,6 @@ from sys.column_store_row_groups A
 outer apply (
 	select [name], type_desc from sys.indexes where object_id = A.object_id
 ) B
-where A.object_id in (OBJECT_ID('Some_table_name'))
+where A.object_id in (OBJECT_ID('Some_table_name')) -- May be commented
 ;
 
