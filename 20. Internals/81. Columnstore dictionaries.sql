@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select OBJECT_NAME(B.OBJECT_ID) as Table_name  -- Columnstore dictionaries
 	, (select [name] from sys.columns where object_id = B.object_id and column_id = A.column_id) as Field
 	, case 
