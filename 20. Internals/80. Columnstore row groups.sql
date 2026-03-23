@@ -17,5 +17,6 @@ outer apply (
 	select [name], type_desc from sys.indexes where object_id = A.object_id
 ) B
 where A.object_id in (OBJECT_ID('Some_table_name')) -- May be commented
+order by Row_group_id
 ;
 
