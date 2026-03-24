@@ -1,6 +1,6 @@
 --USE Production_DB_name; -- Database dependent
 
-select OBJECT_NAME(A.object_id) as Table_name -- Columnstore row groups
+select OBJECT_NAME(A.[object_id]) as Table_name -- Columnstore row groups
 	, B.name as Index_name
 	, B.type_desc as Index_type
 	, A.partition_number as Partition_number
@@ -14,9 +14,12 @@ select OBJECT_NAME(A.object_id) as Table_name -- Columnstore row groups
 	--, A.* 
 from sys.column_store_row_groups A
 outer apply (
-	select [name], type_desc from sys.indexes where object_id = A.object_id
+	select [name], [type_desc] from sys.indexes where [object_id] = A.[object_id]
 ) B
-where A.object_id in (OBJECT_ID('Some_table_name')) -- May be commented
+where A.object_id in (OBJECT_ID('Some_table_name')) -- Table here or may be commented
 order by Row_group_id
 ;
+
+
+
 
