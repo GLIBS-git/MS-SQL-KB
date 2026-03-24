@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select	A.partition_id as [Partition_id] -- Data allocation (partitions и allocation units)
 		, OBJECT_NAME(A.object_id) as [Object_name]
 		, C.name as Index_name
