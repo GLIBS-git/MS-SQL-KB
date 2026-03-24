@@ -4,8 +4,7 @@ select OBJECT_NAME(B.OBJECT_ID) as Table_name  -- Columnstore dictionaries
 	, (select [name] from sys.columns where object_id = B.object_id and column_id = A.column_id) as Field
 	, case 
 		when A.dictionary_id = 0 then 'Common'
-		when A.dictionary_id = 1 then 'Local'
-		else '#Unknown# (' + cast(A.dictionary_id as varchar) + ')'
+		else 'Local (' + cast(A.dictionary_id as varchar) + ')'
 	  end as Dictionary_id
 	, A.[version] as [Version]
 	, case 
@@ -24,5 +23,6 @@ select OBJECT_NAME(B.OBJECT_ID) as Table_name  -- Columnstore dictionaries
 	--, B.* 
 from sys.column_store_dictionaries A
 inner join sys.partitions B on B.partition_id = A.partition_id and B.hobt_id = A.hobt_id
-where B.OBJECT_ID in (OBJECT_ID('INVENTTABLE')) -- May be commented
+where B.OBJECT_ID in (OBJECT_ID('INVENTTABLE')) -- Table here of may be commented
+order by Table_name, A.column_id
 ;
