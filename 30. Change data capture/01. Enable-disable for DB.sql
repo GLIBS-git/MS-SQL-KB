@@ -1,4 +1,4 @@
-USE Production_DB;
+--USE Production_DB_name; -- Database dependent
 
 EXEC sys.sp_cdc_enable_db -- CDC enable for DB
 
