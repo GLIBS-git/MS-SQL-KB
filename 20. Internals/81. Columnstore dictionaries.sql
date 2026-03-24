@@ -23,6 +23,6 @@ select OBJECT_NAME(B.[OBJECT_ID]) as Table_name  -- Columnstore dictionaries
 	--, B.* 
 from sys.column_store_dictionaries A
 inner join sys.partitions B on B.partition_id = A.partition_id and B.hobt_id = A.hobt_id
-where B.OBJECT_ID in (OBJECT_ID('Some_table_name')) -- Table here or line may be commented
+where B.[OBJECT_ID] in (OBJECT_ID('Some_table_name')) -- Table here or line may be commented
 order by Table_name, A.column_id
 ;
