@@ -36,6 +36,6 @@ outer apply
 		for xml path('')
 	) as [Field_list]
 ) Y
-where A.object_id = OBJECT_ID('Some_table_name') -- Table here or comment line
+where A.object_id = OBJECT_ID('Some_table_name') -- Table name here or comment line
 order by A.object_id, A.index_id
 ;
