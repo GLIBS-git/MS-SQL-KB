@@ -41,8 +41,8 @@ outer apply
 		for xml path('')
 	) as [Field_list]
 ) Y
-where A.object_id = OBJECT_ID('Some_table_name')
-and A.database_id = DB_ID('Production_DB_name')
+where A.object_id = OBJECT_ID('Some_table_name') -- Table name here
+and A.database_id = DB_ID('Production_DB_name') -- DB name here
 order by A.database_id, A.object_id, A.index_id
 ;
 
