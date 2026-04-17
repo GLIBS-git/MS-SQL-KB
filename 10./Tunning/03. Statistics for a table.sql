@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select -- Statistics for a table
 	OBJECT_NAME(A.object_id) as [Table] 
 	, A.stats_id as Stats_id
