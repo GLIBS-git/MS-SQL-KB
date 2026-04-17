@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select -- Index list for a table
 	OBJECT_NAME(A.object_id) as [Table]
 	, A.index_id as [Id]
