@@ -27,5 +27,4 @@ and B.database_id in (DB_ID('Production_DB_name'), db_id('Exchange_DB_name'))
 --and A.blocking_session_id is not null or A.wait_type like 'PAGEIOLATCH_%' -- Waiting due to locks or waiting for disk IO completing
 --order by A.session_id desc
 order by [Wait_duration] desc
---order by [Wait_duration] desc
 ;
