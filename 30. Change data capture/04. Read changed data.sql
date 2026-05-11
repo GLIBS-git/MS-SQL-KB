@@ -1,6 +1,6 @@
 --USE Production_DB_name; -- Database dependent
 
-select * from cdc.dbo_Test_1_CT; -- Read CDC data changes (only for investigating). CDC tables are stored in "System Tables" folder in Management Studio.
+select * from cdc.dbo_Test_1_CT; -- Read CDC data changes (only for investigating).
 
 SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_Test_1(0x00000293000001B80052, 0x0000029400000CE80001, 'all') as A; -- CDC read data changes (officially recommended)
 SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_Test_1(0x00000293000001B80052, 0x0000029400000CE80001, 'all update old') as A;
