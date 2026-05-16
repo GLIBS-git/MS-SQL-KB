@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select	A.[filename] as [File_name] -- DB data files size
 		, A.fileid as [File_id]
 		, C.[name] as File_group
