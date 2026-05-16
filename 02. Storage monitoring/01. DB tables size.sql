@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Database dependent
+
 select	OBJECT_NAME(A.[object_id]) as Table_name -- DB tables size
 		, case when A.Index_id = 0 then 'HEAP' when A.Index_id = 1 then 'CLUSTERED' else '##ERROR##' end as Index_type
 		, A.Row_count as [Rows]
