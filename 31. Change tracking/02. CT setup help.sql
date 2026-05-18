@@ -1,4 +1,5 @@
 SELECT DB_NAME(database_id) AS DatabaseName, is_auto_cleanup_on, retention_period, retention_period_units_desc FROM sys.change_tracking_databases; -- Change thacking enabled databases
 
+--USE Production_DB_name; -- Database dependent!
 SELECT OBJECT_NAME(object_id) AS TableName FROM sys.change_tracking_tables; -- Change tracking tables list
 
