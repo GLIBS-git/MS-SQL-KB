@@ -1,4 +1,4 @@
---USE Production_DB_name; -- Database dependent
+--USE Production_DB_name; -- Database dependent!
 
 CREATE INDEX Index_name ON Table_name (Field_1,Field_1,...) WITH (ONLINE = OFF, SORT_IN_TEMPDB = ON, MAXDOP = 6);
 CREATE UNIQUE INDEX Index_name ON Table_name (Field_1,Field_1,...) with (ONLINE = OFF, sort_in_tempdb = on, maxdop = 6);
