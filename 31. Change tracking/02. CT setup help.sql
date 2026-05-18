@@ -4,8 +4,8 @@ SELECT DB_NAME(database_id) AS DatabaseName, is_auto_cleanup_on, retention_perio
 SELECT OBJECT_NAME(object_id) AS TableName FROM sys.change_tracking_tables; -- Change tracked tables list
 
 select A.[name] as Table_name -- Change tracking tables
-	, (select top 1 [name] from sys.schemas where schema_id = A.schema_id) as Schema_
-	, OBJECT_NAME(A.parent_object_id) as Tracked_table
+	, (select top 1 [name] from sys.schemas where schema_id = A.schema_id) as Table_chema
+	, OBJECT_NAME(A.parent_object_id) as Tracking_table
 	, A.create_date as Created
 	, A.modify_date as Modified
 	--, '-----' as [-----]
