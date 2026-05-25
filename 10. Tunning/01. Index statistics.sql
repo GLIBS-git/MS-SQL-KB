@@ -22,7 +22,7 @@ select -- Index statistics
 		where X.object_id = A.object_id and X.index_id = A.index_id and X.is_included_column = 1
 		order by X.key_ordinal
 		for xml path('')
-	  ) as [Index_inclode_fields] 
+	  ) as [Index_include_fields] 
 	--, A.database_id as [DataBase ID]
 	--, A.object_id as [Object ID]
 	--, A.index_id as [Index ID]
