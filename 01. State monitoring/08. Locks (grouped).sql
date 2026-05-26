@@ -1,4 +1,5 @@
 --USE Production_DB_name; -- Some columns are database dependent
+-- Set session filter if production DB, or comment session filter below
 
 SELECT -- Locks (grouped)
 	db_name(A.resource_database_id) as [DataBase]
