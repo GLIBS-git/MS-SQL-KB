@@ -1,3 +1,5 @@
+--USE Production_DB_name; -- Some columns are database dependent
+
 SELECT -- Locks (grouped)
 	db_name(A.resource_database_id) as [DataBase]
 	, A.request_session_id as [Session]
