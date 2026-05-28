@@ -27,3 +27,7 @@ from sys.indexes A
 where A.object_id = OBJECT_ID('Some_table_name') -- Table name here or comment line
 order by A.object_id, A.index_id
 ;
+
+exec sp_help 'Some_table_name'; -- Also shows indexes, but not only indexes
+
+
