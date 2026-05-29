@@ -49,7 +49,7 @@ outer apply
 ) W
 where A.database_id in (db_id('Production_DB_name'), db_id('Buffer_DB_name'))
 and A.session_id <> @@SPID
-and A.command not in ('GHOST CLEANUP','CHECKPOINT','TM REQUEST') -- Exemptions list
+and A.command not in ('GHOST CLEANUP','CHECKPOINT','TM REQUEST','WAITFOR') -- Exemptions list
 --and A.session_id in (451)
 order by A.start_time
 --order by A.session_id desc
