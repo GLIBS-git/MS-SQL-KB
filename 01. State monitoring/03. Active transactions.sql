@@ -50,7 +50,6 @@ SELECT -- Open transactions (+ duration)
 	--, B.* 
 FROM sys.dm_tran_active_transactions A with (nolock)
 left join sys.dm_tran_database_transactions B with (nolock) on B.transaction_id = A.transaction_id
--- One can adjust exemptions list for certain environment and tasks
-where A.name not in ('worktable','WorkFileGroup_fake_worktable','workfile','sort_fake_worktable','sort_init','LobStorageProviderSession','GhostCleanupTask','topn_fake_worktable','SplitPage')
+where A.name not in ('worktable','WorkFileGroup_fake_worktable','workfile','sort_fake_worktable','sort_init','LobStorageProviderSession','GhostCleanupTask','topn_fake_worktable','SplitPage') -- Exemptions list
 order by A.transaction_begin_time
 ;
