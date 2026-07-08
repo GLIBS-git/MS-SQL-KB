@@ -11,8 +11,8 @@ select A.[name] as Name_ -- DB configuration
 	, A.is_auto_create_stats_on as Auto_create_stats
 	, A.is_auto_update_stats_on as Auto_update_stats
 	, A.collation_name as Collation
-	, '-----' as [-----]
-	, A.* 
+	--, '-----' as [-----]
+	--, A.* 
 from sys.databases A
 --where A.[name] in ('Production_DB_name') -- Optional filter
 --where A.database_id in (5,6) -- Optional filter
