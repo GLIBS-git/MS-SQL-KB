@@ -1,5 +1,11 @@
+-- Some more details in help
+
 exec sp_getapplock @Resource = 'Secret_operation', @LockMode = 'Exclusive', @LockOwner = 'Session'; -- Session lock
 exec sp_releaseapplock @Resource = '123', @LockOwner = 'Session';
+
+declare @result int;
+exec @result = sp_getapplock @Resource = '123', @LockMode = 'Exclusive', @LockOwner = 'Session', @LockTimeout = 1000; -- Timeout & check
+select @result;
 
 begin tran;
 exec sp_getapplock @Resource = 'Secret_operation', @LockMode = 'Exclusive'; -- Transaction lock
