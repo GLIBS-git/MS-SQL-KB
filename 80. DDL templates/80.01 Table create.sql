@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[Table_name](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Code] [nvarchar](20) NOT NULL,
+	[Description] [nvarchar](200) NOT NULL,
+	[Weight] [numeric](28, 12) NOT NULL,
+	[GroupId] [int] NOT NULL
+) ON [PRIMARY]
+
+CREATE TABLE "DBO".INVENTTABLE  (
+	ID NVARCHAR(10) NOT NULL DEFAULT '' ,
+	Field_1 INT NOT NULL DEFAULT 0 ,
+	Field_2 NUMERIC(28,12) NOT NULL DEFAULT 0 ,
+	Field_3 DATETIME NOT NULL DEFAULT '1900-01-01 00:00:00.000' ,
+	Field_4 NVARCHAR(max) NOT NULL DEFAULT '' ,
+  Field_5 BIGINT NOT NULL DEFAULT 0
+  Field_6 BIGINT NOT NULL CHECK (Field_6 <> 0)
+)
+
+DROP TABLE Table_name
+
+
+
+
