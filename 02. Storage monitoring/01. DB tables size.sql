@@ -15,7 +15,7 @@ from (
 			, SUM(case when [index_id] > 1 then (in_row_reserved_page_count + lob_reserved_page_count + row_overflow_reserved_page_count) else 0 end) as Reserved_index
 			, SUM(case when [index_id] <= 1 then lob_reserved_page_count else 0 end) as Reserved_lob_data
 	from sys.dm_db_partition_stats 
-	--where object_id in (OBJECT_ID('Some_table_name')) -- Some or all tables 
+	--where object_id in (OBJECT_ID('Some_table_name')) -- Some tables or comment for all tables
 	group by [object_id]
 ) A
 order by Reserved_all_Kb desc
