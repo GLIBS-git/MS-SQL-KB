@@ -16,7 +16,7 @@ where A.internal_type = 209
 ;
 
 exec sp_spaceused 'sys.change_tracking_356261120'; -- Space used by change tracking table
-exec sp_help 'sys.change_tracking_356261120'; -- Change tracking table structure 
+exec sp_help 'sys.change_tracking_356261120'; -- Change tracking table structure. Scheme SYS is a must!
 
 
 
