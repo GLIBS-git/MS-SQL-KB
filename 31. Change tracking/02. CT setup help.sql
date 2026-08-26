@@ -15,6 +15,7 @@ FROM sys.internal_tables A
 WHERE A.internal_type = 209
 ;
 
+-- Read help!
 EXEC sp_spaceused 'sys.change_tracking_356261120'; -- Space used by change tracking table
 EXEC sp_help 'sys.change_tracking_356261120'; -- Change tracking table structure.
 
