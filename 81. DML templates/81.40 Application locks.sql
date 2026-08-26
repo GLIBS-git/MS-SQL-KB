@@ -15,7 +15,7 @@ rollback tran;
 
 select @@TRANCOUNT;
 
-SELECT 
+SELECT -- The application lock list
     tl.request_session_id AS [SPID],
     tl.resource_description AS [AppLock_Name],
     tl.request_mode AS [Lock_Mode],
