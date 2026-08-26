@@ -1,33 +1,38 @@
 --USE Production_DB_name; -- Database dependent
 
-select -- Index list for a table
-	OBJECT_NAME(A.object_id) as [Table]
-	, A.index_id as [Id]
-	, A.name as [Index]
-	, A.type_desc as [Type]
-	, A.is_unique as [Unique]
-	, (	select cast(Y.name as nvarchar) + ',' as 'data()' from sys.index_columns X
-		inner join sys.columns Y on Y.object_id = A.object_id and Y.column_id = X.column_id
-		where X.object_id = A.object_id and X.index_id = A.index_id and X.is_included_column = 0
-		order by X.key_ordinal
-		for xml path('')
-	  ) as [Index_key_fields]
-	, (	select cast(Y.name as nvarchar) + ',' as 'data()' from sys.index_columns X
-		inner join sys.columns Y on Y.object_id = A.object_id and Y.column_id = X.column_id
-		where X.object_id = A.object_id and X.index_id = A.index_id and X.is_included_column = 1
-		order by X.key_ordinal
-		for xml path('')
-	  ) as [Index_include_fields]
-	, A.is_primary_key as [PK]
-	, A.fill_factor as [Fill_factor]
-	, (select [name] from sys.data_spaces where data_space_id = A.data_space_id) as Data_space_id
-	--, '-----' as '-----'
+SELECT -- Index list for a table
+	OBJECT_NAME(A.object_id) AS [Table]
+	, A.index_id AS [Id]
+	, A.name AS [Index]
+	, A.type_desc AS [Type]
+	, A.is_unique AS [Unique]
+	, (	SELECT CAST(Y.name as nvarchar) + ',' AS 'data()' FROM sys.index_columns X
+		INNER JOIN sys.columns Y ON Y.object_id = A.object_id AND Y.column_id = X.column_id
+		WHERE X.object_id = A.object_id AND X.index_id = A.index_id AND X.is_included_column = 0
+		ORDER BY X.key_ordinal
+		FOR XML PATH('')
+	  ) AS [Index_key_fields]
+	, (	SELECT CAST(Y.name as nvarchar) + ',' AS 'data()' FROM sys.index_columns X
+		INNER JOIN sys.columns Y ON Y.object_id = A.object_id AND Y.column_id = X.column_id
+		WHERE X.object_id = A.object_id AND X.index_id = A.index_id AND X.is_included_column = 1
+		ORDER BY X.key_ordinal
+		FOR XML PATH('')
+	  ) AS [Index_include_fields]
+	, A.is_primary_key AS [PK]
+	, A.fill_factor AS [Fill_factor]
+	, (SELECT [name] FROM sys.data_spaces WHERE data_space_id = A.data_space_id) AS Data_space_id
+	--, '-----' AS '-----'
 	--, A.*
-from sys.indexes A
-where A.object_id = OBJECT_ID('Some_table_name') -- Table name here or comment line
-order by A.object_id, A.index_id
+FROM sys.indexes A
+WHERE A.object_id = OBJECT_ID('Some_table_name') -- Table name here or comment line
+--WHERE A.object_id = 1894124613 -- Object id here or comment line
+ORDER BY A.object_id, A.index_id
 ;
 
 exec sp_help 'Some_table_name'; -- Also shows indexes, but not only indexes
+
+
+
+
 
 
